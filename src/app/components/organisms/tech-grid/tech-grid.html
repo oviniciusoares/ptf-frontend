@@ -1,0 +1,22 @@
+<section id="tecnologias" class="tech-grid" aria-label="Tecnologias">
+  <div class="tech-grid__container">
+    <div class="tech-grid__header">
+      <ptf-section-header label="STACK" title="Tecnologias" />
+      <p class="tech-grid__description">
+        Ferramentas e linguagens que utilizo no dia a dia<br />para construir soluções de alta qualidade.
+      </p>
+    </div>
+
+    <div class="tech-grid__cards" role="list" aria-label="Lista de tecnologias">
+      @for (tech of technologies; track tech.name) {
+        <ptf-tech-card
+          [name]="tech.name"
+          [category]="tech.category"
+          [icon]="tech.icon"
+          ptfAnimateOnScroll
+          role="listitem"
+        />
+      }
+    </div>
+  </div>
+</section>

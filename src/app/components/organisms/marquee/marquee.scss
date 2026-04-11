@@ -1,0 +1,40 @@
+.marquee {
+  background-color: var(--color-bg-section-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-5);
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-inline: var(--space-3);
+    white-space: nowrap;
+  }
+
+  &__diamond {
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+
+    &--highlight {
+      color: var(--color-primary);
+    }
+  }
+}

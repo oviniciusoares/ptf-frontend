@@ -1,0 +1,90 @@
+@use '../../../../styles/mixins' as m;
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  // ── Background ─────────────────────────────────────────────────────────────
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg);
+    // Imagem de fundo + gradiente de fallback (mostrado quando a imagem não carrega)
+    background:
+      url('/hero-bg.jpg') center right / cover no-repeat,
+      radial-gradient(ellipse 70% 80% at 78% 45%, #0c1e2e 0%, #0a1520 35%, var(--color-bg) 70%);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        110deg,
+        rgba(7, 11, 14, 0.97) 30%,
+        rgba(7, 11, 14, 0.82) 55%,
+        rgba(7, 11, 14, 0.5) 80%,
+        rgba(7, 11, 14, 0.35) 100%
+      ),
+      radial-gradient(ellipse 55% 65% at 72% 38%, rgba(0, 229, 255, 0.04) 0%, transparent 65%);
+  }
+
+  // ── Container ─────────────────────────────────────────────────────────────
+  &__container {
+    @include m.container;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--header-height) + var(--space-16));
+    padding-bottom: var(--space-24);
+  }
+
+  // ── Content ────────────────────────────────────────────────────────────────
+  &__content {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    animation: fade-in-up 0.8s ease both;
+  }
+
+  &__badge {
+    animation: fade-in-up 0.6s ease both;
+  }
+
+  ptf-heading {
+    animation: fade-in-up 0.8s ease 0.1s both;
+  }
+
+  &__subtitle {
+    color: var(--color-text-secondary);
+    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+    line-height: var(--line-height-normal);
+    animation: fade-in-up 0.8s ease 0.2s both;
+
+    @include m.mobile {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    animation: fade-in-up 0.8s ease 0.3s both;
+  }
+
+  // ── Scroll indicator ───────────────────────────────────────────────────────
+  &__scroll {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--space-8);
+    animation: fade-in 1s ease 0.8s both;
+  }
+}

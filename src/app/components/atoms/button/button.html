@@ -1,0 +1,8 @@
+<button
+  class="btn btn--{{ variant }} btn--{{ size }}"
+  [type]="type"
+  [attr.aria-label]="ariaLabel ?? label"
+  (click)="handleClick()"
+>
+  {{ label }}
+</button>

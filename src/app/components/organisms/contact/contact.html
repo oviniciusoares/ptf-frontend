@@ -1,0 +1,42 @@
+<section id="contato" class="contact" aria-label="Contato">
+  <div class="contact__container">
+    <!-- Coluna Esquerda -->
+    <div class="contact__left" ptfAnimateOnScroll>
+      <ptf-section-header label="CONTATO" title="Vamos trabalhar" highlight="juntos" />
+
+      <p class="contact__text">
+        Disponível para novos projetos, freelances e oportunidades de emprego.
+        Entre em contato e vamos conversar.
+      </p>
+
+      <dl class="contact__info">
+        <div class="contact__info-row">
+          <dt class="contact__info-label">Localização</dt>
+          <dd><ptf-badge [text]="contactInfo.location" variant="primary" /></dd>
+        </div>
+        <div class="contact__info-row">
+          <dt class="contact__info-label">Disponibilidade</dt>
+          <dd><ptf-badge [text]="contactInfo.availability" variant="primary" /></dd>
+        </div>
+        <div class="contact__info-row">
+          <dt class="contact__info-label">Modalidade</dt>
+          <dd><ptf-badge [text]="contactInfo.modality" variant="primary" /></dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Coluna Direita -->
+    <div class="contact__right">
+      @for (item of contactItems; track item.icon) {
+        <div ptfAnimateOnScroll>
+          <ptf-contact-card
+            [icon]="item.icon"
+            [main]="item.main"
+            [subtitle]="item.subtitle"
+            [href]="item.href"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>

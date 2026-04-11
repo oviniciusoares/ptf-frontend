@@ -1,0 +1,51 @@
+@use '../../../../styles/mixins' as m;
+
+.tech-grid {
+  padding-block: var(--space-32);
+
+  @include m.mobile {
+    padding-block: var(--space-20);
+  }
+
+  &__container {
+    @include m.container;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    text-align: right;
+    line-height: var(--line-height-relaxed);
+    max-width: 280px;
+
+    @include m.mobile {
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+
+    @include m.tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include m.mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

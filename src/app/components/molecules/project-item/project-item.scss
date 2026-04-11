@@ -1,0 +1,85 @@
+@use '../../../../styles/mixins' as m;
+
+.project-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--space-6);
+  padding-block: var(--space-10);
+  transition: background-color var(--transition-base);
+
+  @include m.mobile {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  &:hover {
+    .project-item__name {
+      color: var(--color-primary);
+    }
+  }
+
+  &__left {
+    padding-top: var(--space-2);
+
+    @include m.mobile {
+      display: none;
+    }
+  }
+
+  &__number {
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  &__name {
+    color: var(--color-text);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    transition: color var(--transition-base);
+
+    @include m.mobile {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+  }
+
+  &__year {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  &__description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}

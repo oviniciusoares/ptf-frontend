@@ -1,0 +1,44 @@
+export interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface StatItem {
+  value: string;
+  description: string;
+}
+
+export interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+}
+
+export interface TechItem {
+  name: string;
+  category: string;
+  icon: string;
+}
+
+export interface Project {
+  number: string;
+  name: string;
+  status: string;
+  year: number;
+  description: string;
+  tags: string[];
+}
+
+export interface ContactItem {
+  icon: string;
+  main: string;
+  subtitle: string;
+  href: string;
+}
+
+export interface ContactInfo {
+  location: string;
+  availability: string;
+  modality: string;
+}

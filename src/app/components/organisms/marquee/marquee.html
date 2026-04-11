@@ -1,0 +1,17 @@
+<div class="marquee" aria-hidden="true" role="presentation">
+  <div class="marquee__track">
+    <!-- Duplicated for seamless loop -->
+    @for (tech of techs; track $index) {
+      <span class="marquee__item">
+        <span class="marquee__diamond" aria-hidden="true">◆</span>
+        <span class="marquee__text" [class.marquee__text--highlight]="$index % 3 === 0">{{ tech }}</span>
+      </span>
+    }
+    @for (tech of techs; track $index) {
+      <span class="marquee__item">
+        <span class="marquee__diamond" aria-hidden="true">◆</span>
+        <span class="marquee__text" [class.marquee__text--highlight]="$index % 3 === 0">{{ tech }}</span>
+      </span>
+    }
+  </div>
+</div>

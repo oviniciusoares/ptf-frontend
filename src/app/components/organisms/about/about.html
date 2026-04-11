@@ -1,0 +1,39 @@
+<section id="sobre" class="about" aria-label="Sobre mim">
+  <div class="about__container">
+    <div class="about__grid">
+      <!-- Coluna Esquerda: Header + Stats -->
+      <div class="about__left" ptfAnimateOnScroll>
+        <ptf-section-header label="QUEM SOU" title="Sobre" />
+
+        <div class="about__stats-grid">
+          @for (stat of stats; track stat.description) {
+            <ptf-stat-card [value]="stat.value" [description]="stat.description" />
+          }
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Bio + Experiência -->
+      <div class="about__info">
+        <p class="about__bio" ptfAnimateOnScroll>{{ bio }}</p>
+
+        <div class="about__experience" ptfAnimateOnScroll>
+          <h3 class="about__experience-title">EXPERIÊNCIA PROFISSIONAL</h3>
+
+          <div class="about__timeline">
+            @for (exp of experiences; track exp.company; let last = $last) {
+              <ptf-experience-item
+                [period]="exp.period"
+                [role]="exp.role"
+                [company]="exp.company"
+                [description]="exp.description"
+              />
+              @if (!last) {
+                <ptf-divider />
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

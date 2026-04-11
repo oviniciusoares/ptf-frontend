@@ -1,0 +1,40 @@
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+
+  &:hover {
+    border-color: var(--color-primary-border);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  &__value {
+    color: var(--color-primary);
+    font-size: clamp(var(--font-size-4xl), 3.5vw, var(--font-size-5xl));
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  &__description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  &--animated &__value {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

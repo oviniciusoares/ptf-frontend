@@ -1,0 +1,27 @@
+<section id="projetos" class="projects" aria-label="Projetos">
+  <div class="projects__container">
+    <div class="projects__header">
+      <ptf-section-header label="PORTFÓLIO" title="Projetos" />
+      <span class="projects__count" aria-label="{{ projects.length }} projetos selecionados">
+        {{ projects.length }} projetos selecionados
+      </span>
+    </div>
+
+    <div class="projects__list" role="list">
+      @for (project of projects; track project.number; let last = $last) {
+        <div ptfAnimateOnScroll role="listitem">
+          <ptf-divider />
+          <ptf-project-item
+            [number]="project.number"
+            [name]="project.name"
+            [status]="project.status"
+            [year]="project.year"
+            [description]="project.description"
+            [tags]="project.tags"
+          />
+        </div>
+      }
+      <ptf-divider />
+    </div>
+  </div>
+</section>

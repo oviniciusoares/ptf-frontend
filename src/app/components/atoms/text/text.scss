@@ -1,0 +1,29 @@
+.text {
+  line-height: var(--line-height-relaxed);
+
+  // ── Variants ──────────────────────────────────────────────────────────────
+  &--primary {
+    color: var(--color-text);
+  }
+
+  &--secondary {
+    color: var(--color-text-secondary);
+  }
+
+  &--muted {
+    color: var(--color-text-muted);
+  }
+
+  // ── Sizes ─────────────────────────────────────────────────────────────────
+  &--sm {
+    font-size: var(--font-size-sm);
+  }
+
+  &--base {
+    font-size: var(--font-size-base);
+  }
+
+  &--lg {
+    font-size: var(--font-size-lg);
+  }
+}

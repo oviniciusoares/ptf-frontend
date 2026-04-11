@@ -1,0 +1,23 @@
+<article class="project-item">
+  <div class="project-item__left">
+    <span class="project-item__number" aria-hidden="true">{{ number }}</span>
+  </div>
+
+  <div class="project-item__body">
+    <div class="project-item__header">
+      <h3 class="project-item__name">{{ name }}</h3>
+      <div class="project-item__meta">
+        <ptf-badge [text]="status" variant="production" />
+        <span class="project-item__year">{{ year }}</span>
+      </div>
+    </div>
+
+    <p class="project-item__description">{{ description }}</p>
+
+    <div class="project-item__tags" role="list" [attr.aria-label]="'Tecnologias: ' + tags.join(', ')">
+      @for (tag of tags; track tag) {
+        <ptf-badge [text]="tag" variant="outline" role="listitem" />
+      }
+    </div>
+  </div>
+</article>

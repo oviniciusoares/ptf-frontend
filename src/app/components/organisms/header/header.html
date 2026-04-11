@@ -1,0 +1,66 @@
+<header class="header" [class.header--scrolled]="scrolled()">
+  <div class="header__container">
+    <!-- Logo -->
+    <a class="header__logo" href="#inicio" aria-label="Ir para o início">
+      Vinicius <span class="header__logo-highlight">Soares</span>
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="header__nav" aria-label="Navegação principal">
+      @for (item of navItems; track item.href) {
+        <ptf-nav-link
+          [label]="item.label"
+          [href]="item.href"
+          [active]="isActive(item.href)"
+          (click)="closeMenu()"
+        />
+      }
+    </nav>
+
+    <!-- Botão contato desktop -->
+    <div class="header__actions">
+      <ptf-button
+        label="Contato"
+        variant="outline-primary"
+        size="sm"
+        ariaLabel="Ir para a seção de contato"
+        (clicked)="scrollToContact()"
+      />
+    </div>
+
+    <!-- Botão hambúrguer -->
+    <button
+      class="header__hamburger"
+      [class.header__hamburger--open]="menuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Abrir menu de navegação"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  @if (menuOpen()) {
+    <nav class="header__mobile-nav" aria-label="Menu mobile">
+      @for (item of navItems; track item.href) {
+        <a
+          class="header__mobile-link"
+          [href]="item.href"
+          [class.header__mobile-link--active]="isActive(item.href)"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+      <ptf-button
+        label="Contato"
+        variant="filled"
+        size="sm"
+        (clicked)="scrollToContact()"
+      />
+    </nav>
+  }
+</header>

@@ -1,0 +1,31 @@
+.heading {
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+
+  &__highlight {
+    color: var(--color-primary);
+  }
+
+  // ── Sizes ─────────────────────────────────────────────────────────────────
+  &--hero {
+    font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-7xl));
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.0;
+  }
+
+  &--xl {
+    font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
+    font-weight: var(--font-weight-extrabold);
+  }
+
+  &--lg {
+    font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-6xl));
+    font-weight: var(--font-weight-bold);
+  }
+
+  &--md {
+    font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
+    font-weight: var(--font-weight-bold);
+  }
+}

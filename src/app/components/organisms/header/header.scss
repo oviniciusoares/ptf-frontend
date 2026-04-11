@@ -1,0 +1,139 @@
+@use '../../../../styles/mixins' as m;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  transition:
+    background-color var(--transition-base),
+    backdrop-filter var(--transition-base),
+    border-color var(--transition-base);
+  border-bottom: 1px solid transparent;
+
+  &--scrolled {
+    background-color: rgba(9, 9, 11, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--color-border);
+  }
+
+  &__container {
+    @include m.container;
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    gap: var(--space-8);
+  }
+
+  &__logo {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity var(--transition-fast);
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__logo-highlight {
+    color: var(--color-primary);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    flex: 1;
+    justify-content: center;
+
+    @include m.mobile-tablet {
+      display: none;
+    }
+  }
+
+  &__actions {
+    flex-shrink: 0;
+
+    @include m.mobile-tablet {
+      display: none;
+    }
+  }
+
+  // ── Hambúrguer ─────────────────────────────────────────────────────────────
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    padding: 0;
+    margin-left: auto;
+
+    @include m.mobile-tablet {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      height: 2px;
+      background-color: var(--color-text);
+      border-radius: var(--radius-full);
+      transition:
+        transform var(--transition-base),
+        opacity var(--transition-base);
+    }
+
+    &--open {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  // ── Menu mobile ────────────────────────────────────────────────────────────
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--container-padding-x) var(--space-6);
+    background-color: rgba(7, 11, 14, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+
+    ptf-button {
+      margin-top: var(--space-4);
+      align-self: flex-start;
+    }
+  }
+
+  &__mobile-link {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+    transition: color var(--transition-base);
+
+    &:hover,
+    &--active {
+      color: var(--color-primary);
+    }
+  }
+}

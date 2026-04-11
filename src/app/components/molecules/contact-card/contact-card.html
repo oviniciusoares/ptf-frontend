@@ -1,0 +1,15 @@
+<a
+  class="contact-card"
+  [href]="href"
+  target="_blank"
+  rel="noopener noreferrer"
+  [attr.aria-label]="subtitle + ': ' + main"
+>
+  <div class="contact-card__icon" aria-hidden="true">
+    <ptf-icon [name]="icon" />
+  </div>
+  <div class="contact-card__info">
+    <span class="contact-card__main">{{ main }}</span>
+    <span class="contact-card__subtitle">{{ subtitle }}</span>
+  </div>
+</a>

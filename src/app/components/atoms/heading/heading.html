@@ -1,0 +1,17 @@
+@switch (level) {
+  @case (1) {
+    <h1 class="heading heading--{{ size }}">
+      {{ text }}@if (highlight) {<span class="heading__highlight"> {{ highlight }}</span>}
+    </h1>
+  }
+  @case (2) {
+    <h2 class="heading heading--{{ size }}">
+      {{ text }}@if (highlight) {<span class="heading__highlight"> {{ highlight }}</span>}
+    </h2>
+  }
+  @case (3) {
+    <h3 class="heading heading--{{ size }}">
+      {{ text }}@if (highlight) {<span class="heading__highlight"> {{ highlight }}</span>}
+    </h3>
+  }
+}

@@ -1,0 +1,40 @@
+<section id="inicio" class="hero" aria-label="Apresentação">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <ptf-badge text="Disponível para novos projetos" variant="availability" />
+      </div>
+
+      <ptf-heading
+        text="Vinicius"
+        highlight="Soares"
+        [level]="1"
+        size="hero"
+      />
+
+      <p class="hero__subtitle">
+        Analista de Sistemas &nbsp;·&nbsp; Arquitetura de Software &nbsp;·&nbsp; Integração de Sistemas
+      </p>
+
+      <div class="hero__actions">
+        <ptf-button
+          label="Entre em contato"
+          variant="filled"
+          (clicked)="scrollTo('contato')"
+        />
+        <ptf-button
+          label="Ver projetos"
+          variant="outline"
+          (clicked)="scrollTo('projetos')"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <ptf-scroll-indicator />
+  </div>
+</section>
