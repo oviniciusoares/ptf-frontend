@@ -115,8 +115,8 @@ Registro de todas as features implementadas na landing page do portfólio.
 
 ## F-007 — Seção Projetos (Portfólio)
 
-**Status:** ✅ Concluído  
-**Data:** 2026-04-11
+**Status:** ⏸ Desabilitada via Feature Toggle  
+**Data:** 2026-04-11 | Atualizado: 2026-04-13
 
 **Componentes:** `ptf-projects` (organism) + `ptf-project-item`, `ptf-section-header`, `ptf-divider`
 
@@ -125,6 +125,8 @@ Registro de todas as features implementadas na landing page do portfólio.
 - Cada item: número (ciano), nome, badge "Produção" (verde), ano, descrição, tags (outline badges)
 - Hover no item: nome muda para ciano
 - `AnimateOnScrollDirective` em cada item da lista
+
+> **Feature Toggle:** desabilitada com `projetos: false` em `FeatureToggleService`. Para reativar: mudar para `true`. Isso reabilita a seção, o botão "Ver projetos" no Hero e o link "Projetos" no menu.
 
 ---
 
@@ -142,6 +144,44 @@ Registro de todas as features implementadas na landing page do portfólio.
 - Tabela de info: localização, disponibilidade, modalidade (badges ciano)
 - 3 cards clicáveis (email, LinkedIn, GitHub) com ícone + link + subtítulo
 - Hover: `transform: translateX(4px)` + brilho na borda
+
+---
+
+## F-010 — Feature Toggle System
+
+**Status:** ✅ Concluído  
+**Data:** 2026-04-13
+
+**Serviço:** `FeatureToggleService` (`src/app/shared/services/feature-toggle.service.ts`)
+
+**Comportamento:**
+- `FEATURE_FLAGS` no topo do arquivo é a única fonte de verdade — mudar um `boolean` habilita/desabilita tudo relacionado à jornada
+- `FeatureKey` é um union type que cresce conforme novas jornadas são adicionadas
+- `NavItem.featureKey?` vincula itens do menu ao toggle correspondente; o `HeaderComponent` filtra automaticamente
+- `HeroComponent` e `HomePageComponent` checam `isEnabled('projetos')` para esconder o botão e a seção
+- Não depende de environment variables ou build steps — adequado para portfólio pessoal
+
+**Como adicionar uma nova jornada com toggle:**
+1. Adicionar a chave ao tipo `FeatureKey` em `feature-toggle.service.ts`
+2. Adicionar `novaJornada: false` ao objeto `FEATURE_FLAGS`
+3. Marcar o nav item com `featureKey: 'novaJornada'` em `portfolio-data.service.ts`
+4. Condicionar a seção e outros pontos de entrada com `@if (isEnabled('novaJornada'))`
+
+---
+
+## F-011 — Contact Mobile Fix
+
+**Status:** ✅ Concluído  
+**Data:** 2026-04-13
+
+**Arquivos:** `contact-card.scss`, `contact.scss`
+
+**Problema resolvido:**
+- Overflow horizontal no mobile causado por `white-space: nowrap` em URLs longas (ex.: LinkedIn) sem `min-width: 0` nos containers de grid, fazendo o layout ultrapassar o viewport
+
+**Correções:**
+- `contact-card.scss`: `min-width: 0` no card; mobile permite `word-break: break-all` para URLs
+- `contact.scss`: `min-width: 0` em `__left` e `__right`; no mobile o `__info-row` empilha label e badge verticalmente para maior legibilidade
 
 ---
 

@@ -27,7 +27,6 @@
     font-size: var(--font-size-sm);
     text-align: right;
     line-height: var(--line-height-relaxed);
-    max-width: 280px;
 
     @include m.mobile {
       text-align: left;
@@ -46,6 +45,11 @@
 
     @include m.mobile {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+
+    > * {
+      min-width: 0;
     }
   }
 }

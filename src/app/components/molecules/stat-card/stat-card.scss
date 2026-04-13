@@ -15,9 +15,22 @@
     box-shadow: var(--shadow-card-hover);
   }
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__icon {
+    --icon-size: 22px;
+    --icon-color: var(--color-primary);
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
   &__value {
     color: var(--color-primary);
-    font-size: clamp(var(--font-size-4xl), 3.5vw, var(--font-size-5xl));
+    font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
     font-weight: var(--font-weight-extrabold);
     line-height: 1;
     opacity: 0;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { LandingTemplateComponent } from '../../components/templates/landing-template/landing-template';
 import { HeaderComponent } from '../../components/organisms/header/header';
 import { HeroComponent } from '../../components/organisms/hero/hero';
@@ -8,6 +8,7 @@ import { TechGridComponent } from '../../components/organisms/tech-grid/tech-gri
 import { ProjectsComponent } from '../../components/organisms/projects/projects';
 import { ContactComponent } from '../../components/organisms/contact/contact';
 import { FooterComponent } from '../../components/organisms/footer/footer';
+import { FeatureToggleService } from '../../shared/services/feature-toggle.service';
 
 @Component({
   selector: 'ptf-home-page',
@@ -26,4 +27,8 @@ import { FooterComponent } from '../../components/organisms/footer/footer';
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  private featureToggle = inject(FeatureToggleService);
+
+  protected readonly isProjectsEnabled = this.featureToggle.isEnabled('projetos');
+}

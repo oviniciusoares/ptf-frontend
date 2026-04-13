@@ -9,6 +9,7 @@ import { NavLinkComponent } from '../../molecules/nav-link/nav-link';
 import { ButtonComponent } from '../../atoms/button/button';
 import { ScrollTrackerService } from '../../../shared/services/scroll-tracker.service';
 import { PortfolioDataService } from '../../../shared/services/portfolio-data.service';
+import { FeatureToggleService } from '../../../shared/services/feature-toggle.service';
 import type { NavItem } from '../../../shared/models/portfolio.models';
 
 @Component({
@@ -21,8 +22,11 @@ import type { NavItem } from '../../../shared/models/portfolio.models';
 export class HeaderComponent {
   private scrollTracker = inject(ScrollTrackerService);
   private portfolioData = inject(PortfolioDataService);
+  private featureToggle = inject(FeatureToggleService);
 
-  protected readonly navItems: NavItem[] = this.portfolioData.getNavItems();
+  protected readonly navItems: NavItem[] = this.portfolioData
+    .getNavItems()
+    .filter((item) => !item.featureKey || this.featureToggle.isEnabled(item.featureKey));
   protected readonly activeSection = this.scrollTracker.activeSection;
   protected readonly scrolled = signal(false);
   protected readonly menuOpen = signal(false);

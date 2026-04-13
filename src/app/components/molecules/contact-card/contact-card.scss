@@ -1,3 +1,5 @@
+@use '../../../../styles/mixins' as m;
+
 .contact-card {
   display: flex;
   align-items: center;
@@ -6,6 +8,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5) var(--space-6);
+  min-width: 0;
   transition:
     border-color var(--transition-base),
     box-shadow var(--transition-base),
@@ -53,6 +56,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include m.mobile {
+      white-space: normal;
+      word-break: break-all;
+    }
   }
 
   &__subtitle {

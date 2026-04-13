@@ -9,6 +9,7 @@ import {
 import { SectionHeaderComponent } from '../../molecules/section-header/section-header';
 import { BadgeComponent } from '../../atoms/badge/badge';
 import { ContactCardComponent } from '../../molecules/contact-card/contact-card';
+import { IconComponent } from '../../atoms/icon/icon';
 import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-scroll.directive';
 import { ScrollTrackerService } from '../../../shared/services/scroll-tracker.service';
 import { PortfolioDataService } from '../../../shared/services/portfolio-data.service';
@@ -17,7 +18,7 @@ import type { ContactItem, ContactInfo } from '../../../shared/models/portfolio.
 @Component({
   selector: 'ptf-contact',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SectionHeaderComponent, BadgeComponent, ContactCardComponent, AnimateOnScrollDirective],
+  imports: [SectionHeaderComponent, BadgeComponent, ContactCardComponent, IconComponent, AnimateOnScrollDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

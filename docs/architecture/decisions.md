@@ -100,6 +100,24 @@
 
 ---
 
+## ADR-009 — FeatureToggleService com config estático
+
+**Data:** 2026-04-13  
+**Status:** Aceito
+
+**Contexto:** Algumas jornadas do portfólio podem estar em construção ou sem conteúdo disponível. É preciso ocultá-las facilmente sem remover código, tanto da seção quanto dos pontos de entrada (menu, hero buttons).
+
+**Decisão:** `FeatureToggleService` com um objeto `FEATURE_FLAGS: Record<FeatureKey, boolean>` no topo do arquivo. Para habilitar/desabilitar, edita-se apenas o `boolean`. O service é injetado nos pontos de entrada (Header, Hero, HomePage). NavItems marcados com `featureKey?` são filtrados automaticamente no Header.
+
+**Alternativas descartadas:**
+- Variáveis de ambiente — requer rebuild para cada toggle; excesso de infraestrutura para um portfólio pessoal
+- Feature flags em banco ou API — overcomplexidade total para conteúdo estático
+- Simplesmente deletar o código — perde-se o trabalho feito e dificulta reativação futura
+
+**Consequência:** Controle de visibilidade em um único lugar. Toda nova jornada nasce com toggle — padrão documentado em `CLAUDE.md`.
+
+---
+
 ## ADR-008 — Single Page sem rotas adicionais
 
 **Data:** 2026-04-11  

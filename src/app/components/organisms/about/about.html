@@ -7,7 +7,7 @@
 
         <div class="about__stats-grid">
           @for (stat of stats; track stat.description) {
-            <ptf-stat-card [value]="stat.value" [description]="stat.description" />
+            <ptf-stat-card [value]="stat.value" [description]="stat.description" [icon]="stat.icon" />
           }
         </div>
       </div>

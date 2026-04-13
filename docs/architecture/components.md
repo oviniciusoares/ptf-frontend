@@ -90,6 +90,7 @@ Orquestram services, dados e repassa para os níveis inferiores.
 |---|---|---|
 | `ScrollTrackerService` | `shared/services/scroll-tracker.service.ts` | Rastreia seção ativa via `IntersectionObserver`; expõe `signal<string>` |
 | `PortfolioDataService` | `shared/services/portfolio-data.service.ts` | Dados estáticos do portfólio (stats, experiências, tecnologias, projetos, contatos) |
+| `FeatureToggleService` | `shared/services/feature-toggle.service.ts` | Controla visibilidade de jornadas via `FEATURE_FLAGS`; expõe `isEnabled(key: FeatureKey): boolean` |
 
 ### Models
 

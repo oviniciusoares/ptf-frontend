@@ -5,4 +5,7 @@
   (click)="handleClick()"
 >
   {{ label }}
+  @if (icon) {
+    <ptf-icon [name]="icon" class="btn__icon" />
+  }
 </button>

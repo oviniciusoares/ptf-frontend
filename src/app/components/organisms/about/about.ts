@@ -37,7 +37,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   protected readonly experiences: ExperienceItem[] = this.portfolioData.getExperiences();
 
   protected readonly bio =
-    'Analista de Sistemas com mais de 5 anos de experiência no desenvolvimento de soluções robustas e escaláveis. Especializado em integração de software, arquitetura de sistemas e otimização de processos. Trabalho com as principais tecnologias do mercado, desde o backend até o frontend, sempre focado em entregar valor real e qualidade técnica — do levantamento de requisitos ao deploy em produção.';
+    'Analista Full Stack com sólida experiência no mercado financeiro, atuando com Angular e .NET. No Banco Safra desde 2022, desenvolvo jornadas de investimento e sistemas de alta criticidade — do refinamento de requisitos com as áreas de negócio ao deploy em produção. Referência técnica em funcionalidades críticas, com atuação ativa em decisões de arquitetura, padronização de código e disseminação de boas práticas.';
 
   ngAfterViewInit(): void {
     this.scrollTracker.track(this.el.nativeElement, 'sobre');

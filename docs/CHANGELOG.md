@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.1.0] — 2026-04-13
+
+### Adicionado
+
+**Feature Toggle System**
+- `feature-toggle.service.ts` — `FeatureToggleService` com `FEATURE_FLAGS` estático e método `isEnabled(key: FeatureKey): boolean`
+- `FeatureKey` type exportado (`'projetos'` como primeiro valor)
+- `NavItem.featureKey?: FeatureKey` adicionado ao model para vincular itens de navegação a feature flags
+- `portfolio-data.service.ts` — nav item "Projetos" marcado com `featureKey: 'projetos'`
+- `header.ts` — filtra `navItems` descartando itens cujo `featureKey` esteja desabilitado
+- `hero.ts` / `hero.html` — botão "Ver projetos" condicionado a `isProjectsEnabled`
+- `home-page.ts` / `home-page.html` — seção `<ptf-projects>` condicionada a `isProjectsEnabled`
+- Jornada "Projetos" desabilitada por padrão (`projetos: false`) até haver conteúdo real
+
+### Corrigido
+
+**Seção Contato — overflow horizontal no mobile**
+- `contact-card.scss` — adicionado `min-width: 0` no `.contact-card`; no mobile (`max-width: 767px`) o texto principal agora usa `white-space: normal; word-break: break-all` para URLs longas quebrarem corretamente
+- `contact.scss` — adicionado `min-width: 0` em `__left` e `__right` para evitar grid blowout no CSS Grid; no mobile o `__info-row` passa a empilhar label e badge verticalmente com `flex-direction: column; align-items: flex-start`
+
+---
+
 ## [1.0.2] — 2026-04-11
 
 ### Corrigido

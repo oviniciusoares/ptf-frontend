@@ -5,21 +5,30 @@
       <ptf-section-header label="CONTATO" title="Vamos trabalhar" highlight="juntos" />
 
       <p class="contact__text">
-        Disponível para novos projetos, freelances e oportunidades de emprego.
-        Entre em contato e vamos conversar.
+        Desenvolvedor full stack com experiência no mercado financeiro e foco em qualidade.
+        Se você procura alguém que entrega do levantamento de requisitos ao deploy, vamos conversar.
       </p>
 
       <dl class="contact__info">
         <div class="contact__info-row">
-          <dt class="contact__info-label">Localização</dt>
+          <dt class="contact__info-label">
+            <ptf-icon name="map-pin" class="contact__info-icon" />
+            Localização
+          </dt>
           <dd><ptf-badge [text]="contactInfo.location" variant="primary" /></dd>
         </div>
         <div class="contact__info-row">
-          <dt class="contact__info-label">Disponibilidade</dt>
+          <dt class="contact__info-label">
+            <ptf-icon name="check-circle" class="contact__info-icon" />
+            Disponibilidade
+          </dt>
           <dd><ptf-badge [text]="contactInfo.availability" variant="primary" /></dd>
         </div>
         <div class="contact__info-row">
-          <dt class="contact__info-label">Modalidade</dt>
+          <dt class="contact__info-label">
+            <ptf-icon name="monitor" class="contact__info-icon" />
+            Modalidade
+          </dt>
           <dd><ptf-badge [text]="contactInfo.modality" variant="primary" /></dd>
         </div>
       </dl>

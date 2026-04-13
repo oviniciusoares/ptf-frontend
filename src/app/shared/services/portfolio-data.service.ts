@@ -16,60 +16,38 @@ export class PortfolioDataService {
       { label: 'Início', href: '#inicio' },
       { label: 'Sobre', href: '#sobre' },
       { label: 'Tecnologias', href: '#tecnologias' },
-      { label: 'Projetos', href: '#projetos' },
+      { label: 'Projetos', href: '#projetos', featureKey: 'projetos' },
       { label: 'Contato', href: '#contato' },
     ];
   }
 
   getStats(): StatItem[] {
     return [
-      { value: '5+', description: 'Anos de experiência' },
-      { value: '30+', description: 'Projetos entregues' },
-      { value: '12+', description: 'Tecnologias dominadas' },
-      { value: '3', description: 'Empresas atendidas' },
+      { value: '3+', description: 'Anos de experiência', icon: 'clock' },
+      { value: '30+', description: 'Entregas em produção', icon: 'check-circle' },
+      { value: '4', description: 'Tecnologias', icon: 'layers' },
+      { value: 'Top 5', description: 'Banco onde atuo', icon: 'award' },
     ];
   }
 
   getExperiences(): ExperienceItem[] {
     return [
       {
-        period: '2023 — atual',
-        role: 'Analista de Sistemas Sênior',
-        company: 'Tech Solutions',
+        period: '2022 — atual',
+        role: 'Analista de Sistemas Full Stack',
+        company: 'Banco Safra',
         description:
-          'Liderança técnica de projetos de integração de sistemas e arquitetura de microsserviços. Desenvolvimento de soluções escaláveis com foco em alta disponibilidade.',
-      },
-      {
-        period: '2021 — 2023',
-        role: 'Analista de Sistemas Pleno',
-        company: 'Analutika',
-        description:
-          'Desenvolvimento de APIs RESTful, integração com sistemas legados e modernização de plataformas internas com Python e Node.js.',
-      },
-      {
-        period: '2019 — 2021',
-        role: 'Desenvolvedor Backend',
-        company: 'Netsmart',
-        description:
-          'Construção de plataformas web com foco em backend, utilizando Python e Node.js. Implementação de pipelines de dados e integrações com serviços de terceiros.',
+          'Responsável pelo desenvolvimento de sistemas e jornadas de investimento com impacto direto na experiência do cliente. Referência técnica em funcionalidades de alta criticidade, com atuação ativa na definição de arquitetura e padronização de código. Full stack com Angular no front-end e .NET no back-end — do refinamento de requisitos com as áreas de negócio ao deploy em produção.',
       },
     ];
   }
 
   getTechnologies(): TechItem[] {
     return [
-      { name: 'Python', category: 'BACKEND', icon: 'code' },
-      { name: 'JavaScript', category: 'FRONTEND', icon: 'globe' },
-      { name: 'React', category: 'FRONTEND', icon: 'layers' },
-      { name: 'Node.js', category: 'BACKEND', icon: 'server' },
-      { name: 'SQL', category: 'DATABASE', icon: 'database' },
-      { name: 'PostgreSQL', category: 'DATABASE', icon: 'database' },
-      { name: 'MongoDB', category: 'DATABASE', icon: 'database' },
-      { name: 'Docker', category: 'DEVOPS', icon: 'box' },
-      { name: 'Git', category: 'TOOLS', icon: 'git-branch' },
-      { name: 'REST APIs', category: 'ARCHITECTURE', icon: 'globe' },
-      { name: 'TypeScript', category: 'FRONTEND', icon: 'code' },
-      { name: 'Redis', category: 'DATABASE', icon: 'database' },
+      { name: 'Angular / AngularJS', category: 'FRONTEND', icon: 'layers' },
+      { name: '.NET / ASP.NET', category: 'BACKEND', icon: 'server' },
+      { name: 'Node.js', category: 'BACKEND', icon: 'globe' },
+      { name: 'Prompt Engineering', category: 'TOOLS', icon: 'code' },
     ];
   }
 
@@ -81,8 +59,8 @@ export class PortfolioDataService {
         status: 'Produção',
         year: 2025,
         description:
-          'Desenvolvimento de ERP completo para gestão de processos empresariais, integração com APIs de terceiros e dashboard analítico em tempo real.',
-        tags: ['React', 'Node.js', 'PostgreSQL'],
+          'ERP modular para gestão de processos empresariais com dashboards analíticos em tempo real e integração com APIs externas. Arquitetura orientada à performance e escalabilidade para suportar operações de alta demanda.',
+        tags: ['Angular', '.NET', 'SQL Server'],
       },
       {
         number: '02',
@@ -90,8 +68,8 @@ export class PortfolioDataService {
         status: 'Produção',
         year: 2024,
         description:
-          'Arquitetura de microsserviços para plataforma de vendas online com sistema de pagamentos integrado, gestão de estoque e analytics.',
-        tags: ['Python', 'Docker', 'MongoDB'],
+          'Plataforma de vendas com sistema de pagamentos integrado, gestão de estoque em tempo real e analytics comportamental. Foco em jornada do usuário fluida e alta disponibilidade para períodos de pico.',
+        tags: ['.NET', 'Angular', 'Node.js'],
       },
       {
         number: '03',
@@ -99,8 +77,8 @@ export class PortfolioDataService {
         status: 'Produção',
         year: 2024,
         description:
-          'API RESTful para integração com sistemas bancários e processamento de transações financeiras em tempo real com alta disponibilidade.',
-        tags: ['Node.js', 'PostgreSQL', 'Redis'],
+          'API robusta para integração com sistemas bancários e processamento de transações financeiras em tempo real. Desenvolvida com foco em segurança, rastreabilidade e alta disponibilidade em ambiente de produção crítico.',
+        tags: ['.NET', 'Angular', 'REST API'],
       },
     ];
   }
@@ -109,28 +87,28 @@ export class PortfolioDataService {
     return [
       {
         icon: 'mail',
-        main: 'vinicius.soares@email.com',
-        subtitle: 'E-mail profissional',
-        href: 'mailto:vinicius.soares@email.com',
+        main: 'vinicius.sds04@gmail.com',
+        subtitle: 'Envie uma mensagem',
+        href: 'mailto:vinicius.sds04@gmail.com',
       },
       {
         icon: 'linkedin',
-        main: 'linkedin.com/in/viniciussoares',
-        subtitle: 'Perfil LinkedIn',
-        href: 'https://linkedin.com/in/viniciussoares',
+        main: 'linkedin.com/in/vinicius-soares-0806a9191',
+        subtitle: 'Veja minha trajetória',
+        href: 'https://www.linkedin.com/in/vinicius-soares-0806a9191/',
       },
       {
         icon: 'github',
-        main: 'github.com/viniciussoares',
-        subtitle: 'Repositórios públicos',
-        href: 'https://github.com/viniciussoares',
+        main: 'github.com/oviniciusoares',
+        subtitle: 'Confira meu código',
+        href: 'https://github.com/oviniciusoares',
       },
     ];
   }
 
   getContactInfo(): ContactInfo {
     return {
-      location: 'Brasil',
+      location: 'São Paulo, SP',
       availability: 'Imediata',
       modality: 'Remoto / Híbrido',
     };
@@ -138,18 +116,18 @@ export class PortfolioDataService {
 
   getMarqueeTechs(): string[] {
     return [
-      'CLOUD',
-      'DEVOPS',
-      'PYTHON',
-      'REACT',
+      'ANGULAR',
+      'ANGULARJS',
+      '.NET',
+      'ASP.NET',
       'NODE.JS',
-      'POSTGRESQL',
-      'DOCKER',
-      'MONGODB',
-      'REST APIS',
-      'MICROSSERVIÇOS',
-      'GIT',
-      'SQL',
+      'TYPESCRIPT',
+      'FULL STACK',
+      'FRONT-END',
+      'BACK-END',
+      'API REST',
+      'SISTEMAS FINANCEIROS',
+      'ANÁLISE DE SISTEMAS',
     ];
   }
 }

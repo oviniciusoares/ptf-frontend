@@ -5,7 +5,7 @@
   <div class="hero__container">
     <div class="hero__content">
       <div class="hero__badge">
-        <ptf-badge text="Disponível para novos projetos" variant="availability" />
+        <ptf-badge text="Aberto a novas oportunidades" variant="availability" />
       </div>
 
       <ptf-heading
@@ -16,20 +16,24 @@
       />
 
       <p class="hero__subtitle">
-        Analista de Sistemas &nbsp;·&nbsp; Arquitetura de Software &nbsp;·&nbsp; Integração de Sistemas
+        Analista de Sistemas &nbsp;·&nbsp; Angular & .NET &nbsp;·&nbsp; Mercado Financeiro
       </p>
 
       <div class="hero__actions">
         <ptf-button
           label="Entre em contato"
           variant="filled"
+          icon="mail"
           (clicked)="scrollTo('contato')"
         />
-        <ptf-button
-          label="Ver projetos"
-          variant="outline"
-          (clicked)="scrollTo('projetos')"
-        />
+        @if (isProjectsEnabled) {
+          <ptf-button
+            label="Ver projetos"
+            variant="outline"
+            icon="arrow-right"
+            (clicked)="scrollTo('projetos')"
+          />
+        }
       </div>
     </div>
   </div>

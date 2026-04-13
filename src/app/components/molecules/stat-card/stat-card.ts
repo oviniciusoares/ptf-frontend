@@ -8,16 +8,19 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
+import { IconComponent } from '../../atoms/icon/icon';
 
 @Component({
   selector: 'ptf-stat-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [IconComponent],
   templateUrl: './stat-card.html',
   styleUrl: './stat-card.scss',
 })
 export class StatCardComponent implements OnInit, OnDestroy {
   @Input({ required: true }) value!: string;
   @Input({ required: true }) description!: string;
+  @Input() icon?: string;
 
   private observer: IntersectionObserver | null = null;
   private cdr = inject(ChangeDetectorRef);

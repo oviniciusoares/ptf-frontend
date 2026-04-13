@@ -9,7 +9,7 @@ Single Page Application com navegação por âncoras. Tema dark, destaque ciano 
 - `docs/architecture/components.md` — catálogo de componentes existentes (Atoms, Molecules, Organisms…)
 - `docs/FEATURES.md` — detalhes de cada feature
 - `docs/CHANGELOG.md` — histórico de mudanças
-- `docs/architecture/decisions.md` — decisões técnicas (ADR-001 a ADR-008)
+- `docs/architecture/decisions.md` — decisões técnicas (ADR-001 a ADR-009)
 
 ---
 
@@ -71,6 +71,36 @@ IDs válidos: `inicio`, `sobre`, `tecnologias`, `projetos`, `contato`.
 ### Dados do Portfólio
 
 Todos os dados estáticos estão em `PortfolioDataService` (`src/app/shared/services/portfolio-data.service.ts`). Para alterar conteúdo (nome, projetos, experiências, contatos), editar apenas esse arquivo.
+
+### Feature Toggles
+
+Toda nova jornada (seção + pontos de entrada) deve nascer com um feature toggle. Isso permite habilitar ou desabilitar a jornada completa alterando um único `boolean`, sem remover código.
+
+**Serviço:** `FeatureToggleService` em `src/app/shared/services/feature-toggle.service.ts`
+
+**Como adicionar uma nova jornada:**
+
+1. Adicionar a chave ao tipo `FeatureKey` no serviço:
+   ```typescript
+   export type FeatureKey = 'projetos' | 'novaJornada';
+   ```
+2. Adicionar a flag no objeto `FEATURE_FLAGS`:
+   ```typescript
+   const FEATURE_FLAGS: Record<FeatureKey, boolean> = {
+     projetos: false,
+     novaJornada: false,  // começa desabilitado
+   };
+   ```
+3. Marcar o nav item em `PortfolioDataService`:
+   ```typescript
+   { label: 'Nova Jornada', href: '#nova-jornada', featureKey: 'novaJornada' }
+   ```
+4. Condicionar os pontos de entrada (hero button, seção na home-page):
+   ```html
+   @if (isNovaJornada) { <ptf-nova-jornada /> }
+   ```
+
+Para ativar a jornada em produção: mudar `novaJornada: true` no `FEATURE_FLAGS`.
 
 ---
 

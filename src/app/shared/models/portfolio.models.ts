@@ -1,11 +1,15 @@
+import type { FeatureKey } from '../services/feature-toggle.service';
+
 export interface NavItem {
   label: string;
   href: string;
+  featureKey?: FeatureKey;
 }
 
 export interface StatItem {
   value: string;
   description: string;
+  icon?: string;
 }
 
 export interface ExperienceItem {

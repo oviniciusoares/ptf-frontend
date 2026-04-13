@@ -1,4 +1,9 @@
 <div class="stat-card" [class.stat-card--animated]="animated">
+  <div class="stat-card__header">
+    @if (icon) {
+    <ptf-icon [name]="icon" class="stat-card__icon" />
+    }
+  </div>
   <span class="stat-card__value" aria-label="{{ value }} — {{ description }}">{{ value }}</span>
   <span class="stat-card__description">{{ description }}</span>
 </div>

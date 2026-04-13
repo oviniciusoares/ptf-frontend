@@ -11,6 +11,7 @@ import { HeadingComponent } from '../../atoms/heading/heading';
 import { ButtonComponent } from '../../atoms/button/button';
 import { ScrollIndicatorComponent } from '../../molecules/scroll-indicator/scroll-indicator';
 import { ScrollTrackerService } from '../../../shared/services/scroll-tracker.service';
+import { FeatureToggleService } from '../../../shared/services/feature-toggle.service';
 
 @Component({
   selector: 'ptf-hero',
@@ -22,6 +23,9 @@ import { ScrollTrackerService } from '../../../shared/services/scroll-tracker.se
 export class HeroComponent implements AfterViewInit, OnDestroy {
   private el = inject(ElementRef<HTMLElement>);
   private scrollTracker = inject(ScrollTrackerService);
+  private featureToggle = inject(FeatureToggleService);
+
+  protected readonly isProjectsEnabled = this.featureToggle.isEnabled('projetos');
 
   ngAfterViewInit(): void {
     this.scrollTracker.track(this.el.nativeElement, 'inicio');
